@@ -1,24 +1,38 @@
 import logo from './logo.svg';
 import './App.css';
+import { styled } from '@mui/material/styles';
+import Slider from '@mui/material/Slider';
+import Box from '@mui/material/Box';
+import RootComponent from './RootComponent';
+import { CssBaseline } from '@mui/material';
+import { Avatar } from '@mui/material';
+
+const CustomSlider = styled(Slider)`
+  color: #20b2aa;
+
+  :hover {
+    color: #2e8b57;
+  }
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box className="App">
+      <CssBaseline />
+      <RootComponent>
+        <Box className='App-header'>
+          <Avatar src={logo} className="App-logo" alt="logo" sx={{ pointerEvents: 'none', ml: 1, mr: 1}} />
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
+        </Box>
+        <Box className='Contents-box'>
+          <Box sx={{ width: '50%', backgroundColor: 'gray' }}>
+            <CustomSlider defaultValue={30} />
+          </Box>
+        </Box>
+      </RootComponent>
+    </Box>
   );
 }
 
