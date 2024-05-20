@@ -1,57 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Box, List, Typography } from "@mui/material";
+import SideMenu from "./components/SideMenu";
+import Colors from "./values/Colors";
+import MainRouter from "./routers/MainRouter";
+// import logo from "./logo.svg";
+import logo from "./assets/SEED-Logo.png";
+
+const AppLogo = () => {
+  return <Box component="img" src={logo} alt="logo" className="App-logo" />;
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <Box sx={{ display: "flex", flexDirection: "row", height: "100%" }}>
+      <Box sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            height: "5rem",
+            alignItems: "center",
+            bgcolor: Colors.secondary,
+          }}
+        >
+          <AppLogo />
+        </Box>
+        <SideMenu />
+      </Box>
+
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          width: "100%",
+          height: "100%",
+          bgcolor: "#cda",
+        }}
+      >
+        <MainRouter />
+      </Box>
+    </Box>
   );
 }
 
